@@ -9,20 +9,23 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SmokeTestNew 
+public class SmokeTest 
 {	
 	WebDriver driver;
 	
 	@Given("^Open firefox and start application$")
 	public void open_firefox_and_start_application() throws Throwable {
-		
-		System.setProperty("webdriver.chrome.driver","D:\\Browser");
+		//driver=new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver", "D:\\Browser\\chromedriver_win32_83\\chromedriver.exe");
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("http://www.facebook.com");
 	    
 	}
-
+	//Reg exp
+	//1. \"([^\"]*)\"
+	//2.\"(.*?)\"
+	
 	@When("^I enter valid \"(.*?)\" and valid \"(.*?)\"$")
 	public void i_enter_valid_username_and_valid_password(String uname, String pass) throws Throwable {
 		driver.findElement(By.id("email")).sendKeys(uname);
